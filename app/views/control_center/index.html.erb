@@ -1,0 +1,32 @@
+<h1>Control Center</h1>
+
+<div ng-app="controlCenterApp">
+  <div ng-controller="ControlCenterCtrl">
+
+<div style="border: thin solid black; padding: 5px; background-color: #e0e0e0; width: 200px; height: 400px; float: left;">
+  <div ng-show="searching" style="position: absolute; background-color: #d0d0d0; width: 200px; height: 400px; z-index: 100;">
+    <br/><br/>Searching...
+  </div>
+  <div style="position:absolute;">
+    Enter an ID:
+    <%= form_tag '#' do -%>
+      <input type="text" ng-model="searchVal.id"/>
+
+      <br/><br/>
+      <button type="button" id="searchButton" ng-click="searchVal()">Search</button>
+    <% end -%>
+  </div>
+</div>
+
+<div style="border: thin solid black; padding: 5px; background-color: #e0e0e0; width: 400px; height: 400px; float: left; margin: 0 10px;">
+  {{searchMessage}}
+  <br/><br/>
+  <div ng-show="searchResult.name.length > 0">
+    Name: {{searchResult.name}}
+    <br/><br/>
+    Address: {{searchResult.address}}
+  </div>
+</div>
+
+  </div>
+</div>

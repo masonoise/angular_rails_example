@@ -1,0 +1,42 @@
+== Simple example of AngularJS with Rails
+
+This is a very simple example of using AngularJS to improve the interactions within a page of a Rails application.
+The intent is to provide an easy-to-use basic starter for getting AngularJS into a Rails application to begin
+making use of it.
+
+All this application does is:
+
+1. Load a page allowing searching of merchants by ID. The page has a block on the left with the form, and a block
+on the right for showing the results.
+
+2. When you enter an ID, it uses AngularJS to make a call back to the Rails application. It invokes an API endpoint
+that returns JSON with a merchant name and address.
+
+3. When the API call returns, AngularJS updates the right-hand block with the name and address returned.
+
+4. If nothing is found, an error message is displayed.
+
+To begin, start the Rails application and go to http://localhost/control_center.
+
+== Basic Notes
+
+* No database is used. The Rails side has data for a couple of dummy merchants.
+* Merchants will be returned for IDs 1 and 2 only. IDs of 0 or 3+ will return an error.
+* The API has a hard-coded sleep of 3 seconds in order to demonstrate showing a loading indicator that appears
+atop the form.
+* AngularJS is using the Restangular library (https://github.com/mgonto/restangular) to perform the API call.
+* The AngularJS controller is written in a very simple way to make the API call, not using a service or anything fancy.
+
+== What's Here
+
+* vendor/assets/javascripts contains angular.min.js, lodash.min.js, and restangular.min.js
+* app/assets/javascripts contains controllers.js, which is where the AngularJS code lives for the application
+* app/assets/javascripts/application.js ensures that all of the above are loaded
+* app/controllers/control_center_controller.rb is for the page -- it does nothing, really
+* app/views/control_center/index.html.erb is the page
+* app/controllers/api_controller.rb contains the demo API endpoint
+
+== That's It
+
+And that's all there is to it. I may add more example stuff to this but it's intentionally very simple so that
+someone just starting out with AngularJS can have a basic example showing how to begin. I hope it's useful.
