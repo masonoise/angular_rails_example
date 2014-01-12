@@ -6,24 +6,37 @@ making use of it.
 
 All this application does is:
 
-1. Load a page allowing searching of merchants by ID. The page has a block on the left with the form, and a block
-on the right for showing the results.
+1. Load a page allowing searching of merchants by ID. The page has a block on the left with the form, and a block on the right for showing the results.
 
-2. When you enter an ID, it uses AngularJS to make a call back to the Rails application. It invokes an API endpoint
-that returns JSON with a merchant name and address.
+2. When you enter an ID, it uses AngularJS to make a call back to the Rails application. It invokes an API endpoint that returns JSON with a merchant name and address.
 
 3. When the API call returns, AngularJS updates the right-hand block with the name and address returned.
 
 4. If nothing is found, an error message is displayed.
 
-To begin, start the Rails application and go to http://localhost/control_center.
+== Running the Demo
+
+1. Clone this repository to your local machine.
+
+2. cd into the cloned repository
+
+3. bundle install
+
+4. rails s
+
+5. Point your browser to localhost/control_center (also linked from the app's public index page)
+
+6. Where it asks you to enter an ID, type in 1 and click Search. The first dummy merchant will be shown.
+
+7. Try entering 42 and clicking Search. An error message will be shown.
+
+That's it. Take a look at the control_center/index.html.erb to see what the view looks like. Then look at app/assets/javascripts/controllers.js, which contains the Javascript code for the AngularJS app. Then look at the api_controller to see the dummied-out API endpoint.
 
 == Basic Notes
 
-* No database is used. The Rails side has data for a couple of dummy merchants.
+* No database is used. The Rails side has dummy data for a couple of merchants.
 * Merchants will be returned for IDs 1 and 2 only. IDs of 0 or 3+ will return an error.
-* The API has a hard-coded sleep of 3 seconds in order to demonstrate showing a loading indicator that appears
-atop the form.
+* The API has a hard-coded sleep of 3 seconds in order to demonstrate showing a loading indicator that appears atop the form.
 * AngularJS is using the Restangular library (https://github.com/mgonto/restangular) to perform the API call.
 * The AngularJS controller is written in a very simple way to make the API call, not using a service or anything fancy.
 
