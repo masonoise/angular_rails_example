@@ -33,3 +33,9 @@ controlCenterApp.controller('ControlCenterCtrl', function ($scope, Restangular) 
     });
    };
 });
+
+controlCenterApp.directive('showMerchant', function() {
+  return {
+    template: 'Merchant Name: {{searchResult.name}}<br/><br/>Address: {{searchResult.address}}'
+  };
+});
